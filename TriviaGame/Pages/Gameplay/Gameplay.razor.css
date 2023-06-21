@@ -1,6 +1,5 @@
 ﻿/* Gameplay CSS */
 #questionBox {
-    color: white;
     width: 25rem;
     height: 14rem;
     border: 0.1rem solid #b0beff;
@@ -13,25 +12,21 @@
 }
 
 #questionText {
-    color: white;
     font-size: 1.7rem;
     width: 15rem;
     text-align: center;
 }
 
 #questionNumber {
-    color: white;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
 #timer {
-    color: white;
     font-size: 1.1rem;
 }
 
 #lives {
-    color: white;
     font-size: 1.1rem;
 }
 
@@ -41,7 +36,6 @@
 }
 
 .choices {
-    color: white;
     font-size: 1.2rem;
     cursor: pointer;
 }

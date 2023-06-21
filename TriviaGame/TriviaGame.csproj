@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
+    <None Include="wwwroot\css\darkTheme.css" />
+    <None Include="wwwroot\css\lightTheme.css" />
   </ItemGroup>
 
   <ItemGroup>
