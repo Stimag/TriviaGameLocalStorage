@@ -336,9 +336,7 @@
                 for (int i = question.Choices.Length - 1; i > 0; i--)
                 {
                     int j = random.Next(i + 1);
-                    var temp = question.Choices[i];
-                    question.Choices[i] = question.Choices[j];
-                    question.Choices[j] = temp;
+                    (question.Choices[j], question.Choices[i]) = (question.Choices[i], question.Choices[j]);
 
                     // Update the correct choice index if it is affected by shuffling
                     if (question.CorrectChoice == i)
