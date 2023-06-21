@@ -1,0 +1,77 @@
+﻿/* Gameplay CSS */
+#questionBox {
+    color: white;
+    width: 25rem;
+    height: 14rem;
+    border: 0.1rem solid #b0beff;
+    border-radius: 1rem;
+    margin: 0.5rem 0 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#questionText {
+    color: white;
+    font-size: 1.7rem;
+    width: 15rem;
+    text-align: center;
+}
+
+#questionNumber {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+#timer {
+    color: white;
+    font-size: 1.1rem;
+}
+
+#lives {
+    color: white;
+    font-size: 1.1rem;
+}
+
+#timerAndLivesBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.choices {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+    .choices div {
+        width: 25rem;
+        height: 3rem;
+        border: 0.1rem solid #b0beff;
+        border-radius: 1rem;
+        margin: 0.5rem 0 0.5rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .choices div.selected {
+            background-color: #b3b3b3;
+        }
+
+        .choices div.correct {
+            background-color: #8bc34a;
+            color: #fff;
+        }
+
+        .choices div.incorrect {
+            background-color: #f44336;
+            color: #fff;
+        }
+
+        .choices div.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }

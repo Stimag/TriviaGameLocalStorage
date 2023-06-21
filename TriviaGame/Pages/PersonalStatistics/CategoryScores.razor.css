@@ -1,0 +1,13 @@
+﻿/* Category scores CSS */
+#scoreText {
+    color: white;
+    text-align: center;
+}
+
+    #scoreText dt {
+        font-size: 1.5rem;
+    }
+
+    #scoreText dd {
+        font-size: 1.2rem;
+    }

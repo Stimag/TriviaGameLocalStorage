@@ -1,0 +1,51 @@
+﻿@page "/category-scores"
+@inject ScoreData ScoreService
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<div class="pageContent">
+
+    <!-- Category highscore for General knowledge -->
+    <div id="scoreText">
+        <dl>
+            <dt>General knowledge</dt>
+            <dd>@ScoreService.Highscore</dd>
+        </dl>
+    </div>
+
+    <!-- Back to menu button -->
+    <div class="menuBox">
+        <NavLink class="menuLink" href="/">
+            <div class="menuBoxText">Back to menu</div>
+        </NavLink>
+    </div>
+
+   <div class="menuBox">
+         <div class="menuBoxText" @onclick="(() => Clear())">Clear</div>
+    </div>
+
+</div>
+
+@code {
+    private Pages.Index? index;
+
+    // Update highscore and read it when loading this page
+    protected override async Task OnInitializedAsync()
+    {
+        if (index is not null)
+        {
+            await index.ReadHighscore();
+        }
+    }
+
+    /*public async void Clear()
+    {
+        //this will clear the local storage
+        await localStorage.ClearAsync();
+    }*/
+
+}
+
+
+
+
+
