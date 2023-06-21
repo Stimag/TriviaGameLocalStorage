@@ -1,5 +1,5 @@
 ﻿@page "/results"
-@inject ScoreData ScoreService
+@inject TriviaScore TriviaScore
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <PageTitle>Results</PageTitle>
@@ -9,8 +9,8 @@
     <!-- Quiz result title -->
     <h1 id="resultTitle">Quiz Result</h1>
     <!-- Quiz result text -->
-    <p class="resultText">You made it through @ScoreService.Score questions!</p>
-    <p class="resultText">Your highscore is @ScoreService.Highscore.</p>
+    <p class="resultText">You made it through @TriviaScore.Score questions!</p>
+    <p class="resultText">Your highscore is @TriviaScore.Highscore.</p>
 
     <!-- Play again button -->
     <div class="menuBox">
@@ -32,7 +32,7 @@
     // Update highscore and read it when loading this page
     protected override async Task OnInitializedAsync()
     {
-        await UpdateHighscore(ScoreService.Score);
+        await UpdateHighscore(TriviaScore.Score);
         await ReadHighscore(); 
     }
 
@@ -41,7 +41,7 @@
     private async Task ReadHighscore()
     {
         var highscore = await localStorage.GetItemAsync<string>("highScore");
-        ScoreService.Highscore = Int32.Parse(highscore);
+        TriviaScore.Highscore = Int32.Parse(highscore);
     }
 
     // Update highscore in localStorage if it is higher than previous highscore

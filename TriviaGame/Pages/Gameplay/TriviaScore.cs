@@ -1,6 +1,6 @@
 ﻿namespace TriviaGame.Pages.Gameplay
 {
-    public class ScoreData
+    public class TriviaScore
     {
         public int Score { get; set; }
         public int Highscore { get; set; }

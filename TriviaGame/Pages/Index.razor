@@ -1,5 +1,5 @@
 ﻿@page "/"
-@inject ScoreData ScoreService
+@inject TriviaScore TriviaScore
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <PageTitle>Trivia Game</PageTitle>
@@ -48,6 +48,6 @@
     public async Task ReadHighscore()
     {
         var highscore = await localStorage.GetItemAsync<string>("highScore");
-        ScoreService.Highscore = Int32.Parse(highscore);
+        TriviaScore.Highscore = Int32.Parse(highscore);
     }
 }

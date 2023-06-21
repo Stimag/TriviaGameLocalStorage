@@ -1,5 +1,5 @@
 ﻿@page "/category-scores"
-@inject ScoreData ScoreService
+@inject TriviaScore TriviaScore
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
 <div class="pageContent">
@@ -8,7 +8,7 @@
     <div id="scoreText">
         <dl>
             <dt>General knowledge</dt>
-            <dd>@ScoreService.Highscore</dd>
+            <dd>@TriviaScore.Highscore</dd>
         </dl>
     </div>
 
@@ -19,9 +19,9 @@
         </NavLink>
     </div>
 
-   <div class="menuBox">
+    <!--<div class="menuBox">
          <div class="menuBoxText" @onclick="(() => Clear())">Clear</div>
-    </div>
+    </div>-->
 
 </div>
 

@@ -1,5 +1,5 @@
 ﻿@page "/gameplay"
-@inject ScoreData ScoreService
+@inject TriviaScore TriviaScore
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
 
@@ -64,7 +64,7 @@ else
         StartTimer();
         SelectFirstQuestion();
         RandomizeQuestionOrder();
-        ScoreService.Score = 0;
+        TriviaScore.Score = 0;
     }
 
     // Initialize highscore on loading this page if it is null
@@ -127,7 +127,7 @@ else
 
         LockAnswer(selectedChoiceIndex);
 
-        ScoreService.Score++;
+        TriviaScore.Score++;
     }
 
     // Lock answer 
