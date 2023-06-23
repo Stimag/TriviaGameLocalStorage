@@ -51,7 +51,7 @@ else
     private List<int> usedQuestionIndices = new List<int>();
 
     [Parameter]
-    public TriviaQuestion[] triviaQuestionData { get; set; }
+    public TriviaQuestion[]? triviaQuestionData { get; set; }
 
     private int totalQuestions;
     private int? selectedChoiceIndex = null;
@@ -68,7 +68,11 @@ else
         SelectFirstQuestion();
         RandomizeQuestionOrder();
         TriviaScore.Score = 0;
-        totalQuestions = triviaQuestionData.Length;
+        if (triviaQuestionData is not null)
+        {
+            totalQuestions = triviaQuestionData.Length;
+        }
+
     }
 
     // Initialize highscore on loading this page if it is null
@@ -86,8 +90,6 @@ else
             await localStorage.SetItemAsync(highScoreKey, 0);
         }
     }
-
-
 
     // Start timer
     // Lose lives if timer reaches 0
@@ -127,11 +129,13 @@ else
 
         selectedChoiceIndex = choiceIndex;
 
-        if (selectedChoiceIndex != triviaQuestionData[currentQuestionIndex].CorrectChoice)
+        if (triviaQuestionData is not null)
         {
-            lives--;
+            if (selectedChoiceIndex != triviaQuestionData[currentQuestionIndex].CorrectChoice)
+            {
+                lives--;
+            }
         }
-
         LockAnswer(selectedChoiceIndex);
 
         TriviaScore.Score++;
@@ -155,12 +159,15 @@ else
     // Randomize the order of questions
     private void RandomizeQuestionOrder()
     {
-        for (int i = triviaQuestionData.Length - 1; i > 0; i--)
+        if (triviaQuestionData is not null)
         {
-            int j = random.Next(i + 1);
-            var temp = triviaQuestionData[i];
-            triviaQuestionData[i] = triviaQuestionData[j];
-            triviaQuestionData[j] = temp;
+            for (int i = triviaQuestionData.Length - 1; i > 0; i--)
+            {
+                int j = random.Next(i + 1);
+                var temp = triviaQuestionData[i];
+                triviaQuestionData[i] = triviaQuestionData[j];
+                triviaQuestionData[j] = temp;
+            }
         }
     }
 

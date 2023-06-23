@@ -1,7 +1,7 @@
 ﻿/* Gameplay CSS */
 #questionBox {
     width: 25rem;
-    height: 14rem;
+    height: 20rem;
     border: 0.1rem solid #b0beff;
     border-radius: 1rem;
     margin: 0.5rem 0 0.5rem 0;
@@ -12,7 +12,7 @@
 }
 
 #questionText {
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     width: 15rem;
     text-align: center;
 }
