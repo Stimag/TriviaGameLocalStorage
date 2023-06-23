@@ -4,11 +4,15 @@
 
 <div class="pageContent">
 
-    <!-- Category highscore for General knowledge -->
+    <!-- Category highscores -->
     <div id="scoreText">
         <dl>
             <dt>General knowledge</dt>
-            <dd>@TriviaScore.Highscore</dd>
+            <dd>@generalKnowledgeHighscore</dd>
+        </dl>
+        <dl>
+            <dt>Gaming</dt>
+            <dd>@gamingTriviaHighscore</dd>
         </dl>
     </div>
 
@@ -26,23 +30,14 @@
 </div>
 
 @code {
-    private Pages.Index? index;
+    private string? generalKnowledgeHighscore;
+    private string? gamingTriviaHighscore;
 
-    // Update highscore and read it when loading this page
     protected override async Task OnInitializedAsync()
     {
-        if (index is not null)
-        {
-            await index.ReadHighscore();
-        }
+        generalKnowledgeHighscore = await localStorage.GetItemAsync<String>($"highScore_generalKnowledgeTrivia");
+        gamingTriviaHighscore = await localStorage.GetItemAsync<String>($"highScore_gamingTrivia");
     }
-
-    /*public async void Clear()
-    {
-        //this will clear the local storage
-        await localStorage.ClearAsync();
-    }*/
-
 }
 
 

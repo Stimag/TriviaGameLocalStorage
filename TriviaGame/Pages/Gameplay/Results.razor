@@ -1,6 +1,7 @@
 ﻿@page "/results"
 @inject TriviaScore TriviaScore
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+@inject NavigationManager NavigationManager
 
 <PageTitle>Results</PageTitle>
 
@@ -14,7 +15,7 @@
 
     <!-- Play again button -->
     <div class="menuBox">
-        <NavLink class="menuLink" href="/gameplay">
+        <NavLink class="menuLink" href="/category-picker">
             <div class="menuBoxText">Play again</div>
         </NavLink>
     </div>
@@ -29,30 +30,35 @@
 </div>
  
 @code {
+    private string? pageId;
+
     // Update highscore and read it when loading this page
     protected override async Task OnInitializedAsync()
     {
-        await UpdateHighscore(TriviaScore.Score);
-        await ReadHighscore(); 
+        pageId = await localStorage.GetItemAsync<string>("lastPageId");
+        await UpdateHighscore(TriviaScore.Score, pageId);
+        await ReadHighscore(pageId); 
+    }
+
+    // Update highscore in localStorage if it is higher than previous highscore
+    private async Task UpdateHighscore(int newHighscore, string pageId)
+    {
+        var highScoreKey = $"highScore_{pageId}";
+        var highScore = Int32.Parse(await localStorage.GetItemAsync<string>(highScoreKey));
+
+        if (newHighscore > highScore)
+        {
+            await localStorage.SetItemAsync(highScoreKey, newHighscore);
+        }
     }
 
     // Read highscore from localStorage
     // Cannot use the index one, because then it doesn't update before loading page
-    private async Task ReadHighscore()
+    private async Task ReadHighscore(string pageId)
     {
-        var highscore = await localStorage.GetItemAsync<string>("highScore");
+        var highScoreKey = $"highScore_{pageId}";
+        var highscore = await localStorage.GetItemAsync<string>(highScoreKey);
         TriviaScore.Highscore = Int32.Parse(highscore);
-    }
-
-    // Update highscore in localStorage if it is higher than previous highscore
-    private async Task UpdateHighscore(int newHighscore)
-    {
-        var highScore = Int32.Parse(await localStorage.GetItemAsync<string>("highScore"));
-
-        if (newHighscore > highScore)
-        {
-            await localStorage.SetItemAsync("highScore", newHighscore);
-        }
     }
 }
 

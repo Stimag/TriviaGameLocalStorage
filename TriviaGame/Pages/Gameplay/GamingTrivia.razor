@@ -1,0 +1,60 @@
+﻿@page "/gamingTrivia"
+
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
+
+@inject TriviaScore TriviaScore
+@inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<Gameplay triviaQuestionData="yourQuestionDataArray1" />
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        var pageId = "gamingTrivia";
+        await localStorage.SetItemAsync("lastPageId", pageId);
+    }
+
+    private TriviaQuestion[] yourQuestionDataArray1 = new TriviaQuestion[]
+    {
+        new TriviaQuestion
+    {
+        Question = "What is the capital of France?",
+        Choices = new string[] { "Paris", "London", "Rome", "Berlin" },
+        CorrectChoice = 0
+    },
+    new TriviaQuestion
+    {
+        Question = "Which planet is known as the Red Planet?",
+        Choices = new string[] { "Mars", "Jupiter", "Venus", "Mercury" },
+        CorrectChoice = 0
+    },
+    new TriviaQuestion
+    {
+        Question = "Which planet is known as the Red Planet?",
+        Choices = new string[] { "Mars", "Jupiter", "Venus", "Mercury" },
+        CorrectChoice = 0
+    },
+    new TriviaQuestion
+    {
+        Question = "Which planet is known as the Red Planet?",
+        Choices = new string[] { "Mars", "Jupiter", "Venus", "Mercury" },
+        CorrectChoice = 0
+    },
+    new TriviaQuestion
+    {
+        Question = "Which planet is known as the Red Planet?",
+        Choices = new string[] { "Mars", "Jupiter", "Venus", "Mercury" },
+        CorrectChoice = 0
+    },
+    new TriviaQuestion
+    {
+        Question = "Which planet is known as the Red Planet?",
+        Choices = new string[] { "Mars", "Jupiter", "Venus", "Mercury" },
+        CorrectChoice = 0
+    },
+
+
+    };
+}
