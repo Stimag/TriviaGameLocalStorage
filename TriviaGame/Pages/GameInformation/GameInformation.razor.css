@@ -1,12 +1,12 @@
-﻿/* General game information CSS */
-.generalGameInfoTitle {
+﻿/* Game information CSS */
+.gameInfoTitle {
     font-size: 1.4rem;
     font-weight: bold;
     margin: 0.5rem 0 0.5rem 0;
     text-align: center;
 }
 
-.generalGameInfoText {
+.gameInfoText {
     width: 25rem;
     text-align: center;
 }
