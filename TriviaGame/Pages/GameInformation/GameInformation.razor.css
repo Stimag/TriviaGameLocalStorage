@@ -10,3 +10,10 @@
     width: 25rem;
     text-align: center;
 }
+
+/* Responsive CSS */
+@media (max-width: 500px) {
+    .gameInfoText {
+        width: 15rem;
+    }
+}

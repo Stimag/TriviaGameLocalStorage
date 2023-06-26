@@ -154,3 +154,16 @@ input:checked + .slider:before {
     .slider.round:before {
         border-radius: 50%;
     }
+
+
+
+/* Responsive CSS */
+@media (max-width: 500px) {
+    html, body {
+        margin: 0.5rem;
+    }
+
+    .menuBox {
+        width: 15rem;
+    }
+}
