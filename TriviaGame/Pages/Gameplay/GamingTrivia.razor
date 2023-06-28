@@ -1,11 +1,10 @@
 ﻿@page "/gamingTrivia"
-
-@using Microsoft.AspNetCore.Components
-@using Microsoft.JSInterop
-
-@inject TriviaScore TriviaScore
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+@using TriviaGame.Models
+@using Microsoft.AspNetCore.Components
+@using Microsoft.JSInterop
 
 <PageTitle>Gaming trivia</PageTitle>
 <Gameplay triviaQuestionData="gamingQuestions" />

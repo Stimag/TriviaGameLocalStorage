@@ -1,4 +1,4 @@
-﻿namespace TriviaGame.Pages.Gameplay
+﻿namespace TriviaGame.Models
 {
     public class TriviaScore
     {
